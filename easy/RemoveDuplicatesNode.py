@@ -1,5 +1,14 @@
 from typing import Optional
 
+"""
+83. Remove Duplicates from Sorted List
+Easy
+Topics
+Companies
+
+Given the head of a sorted linked list, delete all duplicates such that each element appears only once. Return the linked list sorted as well.
+"""
+
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -9,15 +18,12 @@ class ListNode:
 
 class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        body = ListNode()
-        nextt = body
-        correct_elem = []
+        curr = head
 
-        while head:
-            if head.val not in correct_item:
-                correct_item.append(head.val)
-                nextt.val = head.val
-                nextt.next = head.next
-                head = head.next
+        while curr and curr.next:
+            if curr.val == curr.next.val:
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
 
-        return body
+        return head
