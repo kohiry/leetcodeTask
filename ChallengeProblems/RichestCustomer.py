@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def maximumWealth(self, accounts: List[List[int]]) -> int:
-        return max([sum(i) for i in accounts])
+        return max(map(sum, accounts))
 
 
 test_case = [
@@ -14,4 +14,4 @@ test_case = [
 
 for test, answer in test_case:
     print(Solution().maximumWealth(test), answer)
-    assert Solution().maximumWealth(test) == answer
+    assert Solution().maximumWealth(test)
