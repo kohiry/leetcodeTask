@@ -1,0 +1,24 @@
+# class Solution:
+#     def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+#         count = 0
+#         i = 0
+#         while i < len(flowerbed):
+#             if flowerbed[i] == 0:
+#                 if i == 0 or flowerbed[i - 1] == 0:
+#                     if i == len(flowerbed) - 1 or flowerbed[i + 1] == 0:
+#                         flowerbed[i] = 1
+#                         count += 1
+#             i += 1
+
+
+#         return count >= n
+class Solution:
+    def canPlaceFlowers(self, flowerbed: List[int], n: int) -> bool:
+        flowerbed = [0] + flowerbed + [0]
+        i = 1
+        while i < len(flowerbed) - 1:
+            if flowerbed[i - 1] == flowerbed[i] == flowerbed[i + 1] == 0:
+                flowerbed[i] = 1
+                n -= 1
+            i += 1
+        return n <= 0
